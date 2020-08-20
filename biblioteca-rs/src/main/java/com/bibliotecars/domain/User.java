@@ -3,6 +3,8 @@ package com.bibliotecars.domain;
 //imports para o uso do List e ArrayList.
 import java.util.ArrayList;
 import java.util.List;
+
+import com.bibliotecars.domain.enums.Funcao;
 import com.bibliotecars.domain.enums.Pedido;
 
 public class User {
@@ -11,6 +13,7 @@ public class User {
 	private String nome;
 	private String email;
 	private String senha;
+	private Funcao funcao;
 	//Como o usuário pode ter varios livros adicionamos ele aqui.//
 	private List<Livro> livro = new ArrayList<Livro> ();
 	private List<Pedido> pedido = new ArrayList<Pedido>();
@@ -21,12 +24,13 @@ public class User {
 	}
 	
 	//construtor com todos os atributos da classe.
-	public User(long id, String nome, String email, String senha, List<Livro> livro, List<Pedido> pedido) {
+	public User(long id, String nome, String email, String senha, Funcao funcao, List<Livro> livro, List<Pedido> pedido) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
+		this.funcao = funcao;
 		this.livro = livro;
 		this.pedido = pedido;
 	}
@@ -62,6 +66,15 @@ public class User {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+
+	public Funcao getFuncao() {
+		return funcao;
+	}
+
+	public void setFuncao(Funcao funcao) {
+		this.funcao = funcao;
 	}
 
 	public List<Livro> getLivro() {
