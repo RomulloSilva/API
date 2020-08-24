@@ -1,29 +1,56 @@
 package com.bibliotecars.domain;
-
-//imports para o uso do List e ArrayList.
+/*************************************************/
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bibliotecars.domain.enums.Funcao;
-import com.bibliotecars.domain.enums.Pedido;
+import javax.persistence.Column;
+/*************************************************/
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+/*************************************************/
+import com.bibliotecars.domain.enums.Funcao;
+
+@Entity (name = "user")
 public class User {
 	
-	private long id;
-	private String nome;
-	private String email;
-	private String senha;
-	private Funcao funcao;
-	//Como o usuário pode ter varios livros adicionamos ele aqui.//
-	private List<Livro> livro = new ArrayList<Livro> ();
-	private List<Pedido> pedido = new ArrayList<Pedido>();
 	
-	//Constructor sem argumentos.
+	@Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY) //Gera automaticamente o id)
+	private long id;
+	
+	@Column (length = 75, nullable = false)
+	private String nome;
+	
+	@Column (length = 75, nullable = false, unique = true)
+	private String email;
+	
+	@Column (length = 100, nullable = false)
+	private String senha;
+	
+	@Column (length = 20, nullable = false)
+	@Enumerated (EnumType.STRING)
+	private Funcao funcao;
+	
+	//Como o usuário pode ter varios livros adicionamos ele aqui.//
+	@OneToMany (mappedBy = "user")
+	private List<Livro> livro = new ArrayList<Livro> ();
+	
+	@OneToMany (mappedBy = "user")
+	private List<Pedido> pedido = new ArrayList<Pedido> ();
+
+	
+	//Constructor sem argumentos
 	public User() {
 		
 	}
 	
-	//construtor com todos os atributos da classe.
+	//Constructor com todos os atributos da classe
 	public User(long id, String nome, String email, String senha, Funcao funcao, List<Livro> livro, List<Pedido> pedido) {
 		super();
 		this.id = id;
@@ -35,7 +62,6 @@ public class User {
 		this.pedido = pedido;
 	}
 
-	
 	public long getId() {
 		return id;
 	}
@@ -67,7 +93,6 @@ public class User {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
 
 	public Funcao getFuncao() {
 		return funcao;
@@ -96,7 +121,5 @@ public class User {
 	
 	
 	
-	
-	
-	
+
 }
