@@ -1,4 +1,5 @@
 package com.bibliotecars.domain;
+import java.io.Serializable;
 /**************************************************/
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,8 +33,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity (name = " livro")
-public class Livro {
+public class Livro implements Serializable {
 	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
