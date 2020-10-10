@@ -32,7 +32,7 @@ import lombok.Setter;
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity (name = " livro")
+@Entity (name = "livro")
 public class Livro implements Serializable {
 	
 	

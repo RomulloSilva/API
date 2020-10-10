@@ -17,6 +17,7 @@ import com.bibliotecars.domain.User;
 import com.bibliotecars.domain.enums.Funcao;
 
 
+
 @RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING) //Executa os testes em ordem alfabética.
 @SpringBootTest

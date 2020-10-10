@@ -20,6 +20,6 @@ public interface LivroRepositorio extends JpaRepository<Livro, Long>{
 	/*
 	 * |Método para alterar o status do livro.
 	 */
-	@Query("UPDATE Livro SET status = ?2 WHERE id = ?1")
+	@Query("UPDATE livro SET status = ?2 WHERE id = ?1")
 	public Livro updateStatus(long id, Status status);
 }

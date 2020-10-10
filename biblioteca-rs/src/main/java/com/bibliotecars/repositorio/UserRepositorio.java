@@ -25,7 +25,7 @@ public interface UserRepositorio extends JpaRepository<User, Long> {
 	 * onde pode ser encontrados os valores de emial e senha.
 	 * O "Optional" é para fazer um tratemento caso valores nulos sejam inseridos.
 	*/
-	@Query("SELECT FROM User WHERE email= ?1 And senha = ?2")
+	@Query("SELECT u FROM user u WHERE email= ?1 And senha = ?2")
 	public Optional<User> login(String email, String senha);
 	
 
