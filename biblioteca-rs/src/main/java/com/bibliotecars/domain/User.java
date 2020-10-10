@@ -17,6 +17,13 @@ import javax.persistence.OneToMany;
 /*************************************************/
 import com.bibliotecars.domain.enums.Funcao;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+
 @Entity (name = "user")
 public class User implements Serializable {
 	
@@ -52,6 +59,10 @@ public class User implements Serializable {
 	@OneToMany (mappedBy = "user")
 	private List<Pedido> pedido = new ArrayList<Pedido> ();
 
+	
+	
+	
+	
 	
 	//Constructor sem argumentos
 	public User() {
@@ -125,8 +136,6 @@ public class User implements Serializable {
 	public void setPedido(List<Pedido> pedido) {
 		this.pedido = pedido;
 	}
-	
-	
 	
 	
 
